@@ -14,6 +14,7 @@ angular.module('tempoApp.home', ['ui.router'])
                     templateUrl: 'home/home.html'
                 });
             }])
-                .controller('HomeCtrl',function(){
-                    
-                });
+
+        .controller('HomeCtrl', function () {
+
+        });

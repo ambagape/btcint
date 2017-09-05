@@ -14,19 +14,21 @@ angular.module('tempoApp', [
 
         $urlRouterProvider.otherwise('/login');
 
-    }]).constant('mLab',{
-        url:'https://api.mlab.com/api/1/databases/tempodb/collections',
-        apiKey:'66K6kMrv_mbqbOQv8Q5aW5at3-p9lAdv'
-    }).constant('config',{
-        domain: 'sandboxc5c1d020790b4ad4b4deefb14da0a94a.mailgun.org',
-        mailServer: 'http://localhost/tempo/adminoxadmin-12/Frontend/server/mailer.php'
-    }).config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    }]).constant('mLab', {
+    url: 'https://api.mlab.com/api/1/databases/tempodb/collections',
+    apiKey: '66K6kMrv_mbqbOQv8Q5aW5at3-p9lAdv'
+}).constant('config', {
+    domain: 'sandboxc5c1d020790b4ad4b4deefb14da0a94a.mailgun.org',
+    mailServer: 'http://localhost/tempo/adminoxadmin-12/Frontend/server/mailer.php'
+}).config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-                $stateProvider.state('secure', {
-                    abstact: true,
-                    controller: 'SecureCtrl',
-                    templateUrl: 'secure.html'
-                });
-            }]).controller('SecureCtrl', function(){
-                console.log("in the secure controller");
-            });
+        $stateProvider.state('secure', {
+            abstract: true,
+            url: '/secure',
+            controller: 'SecureCtrl',
+            templateUrl: 'secure.html'
+        });
+    }])
+        .controller('SecureCtrl', function () {
+            $( "body" ).removeClass( "bg-accpunt-pages" );
+        });
