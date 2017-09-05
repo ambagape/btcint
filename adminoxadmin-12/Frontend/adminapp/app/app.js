@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('tempoApp', [
     'ui.router',
+    'ngStorage',
     'angular-uuid',
     'tempoApp.mailgun',
     'tempoApp.login',
@@ -19,4 +20,13 @@ angular.module('tempoApp', [
     }).constant('config',{
         domain: 'sandboxc5c1d020790b4ad4b4deefb14da0a94a.mailgun.org',
         mailServer: 'http://localhost/tempo/adminoxadmin-12/Frontend/server/mailer.php'
-    });
+    }).config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+
+                $stateProvider.state('secure', {
+                    abstact: true,
+                    controller: 'SecureCtrl',
+                    templateUrl: 'secure.html'
+                });
+            }]).controller('SecureCtrl', function(){
+                console.log("in the secure controller");
+            });

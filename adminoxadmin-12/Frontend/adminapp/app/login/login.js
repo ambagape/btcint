@@ -11,25 +11,60 @@ angular.module('tempoApp.login', ['ui.router'])
                     url: '/activate/:email/:code',
                     controller: 'ActivateCtrl',
                     templateUrl: 'login/login.html'
+                }).state('recover', {
+                    url: '/recover',
+                    controller: 'RecoverCtrl',
+                    templateUrl: 'login/recover.html'
                 });
             }])
 
-        .controller('LoginCtrl', [function ($scope, $http, mLab) {
+        .controller('LoginCtrl', function ($scope, $http, mLab, $localStorage) {
+            $scope.isLoading = false;
+            $scope.login = {};
+           
+            $scope.loginAction = function () {
+                $scope.isLoading = true;
                 var query = {email: $scope.login.email};
                 $http.get(mLab.url + '/person?apiKey=' + mLab.apiKey + '&q=' + JSON.stringify(query))
                         .then(function (data) {
-                            if (data.data.length > 0) {
-                                if (data.data[0].password === login.password) {
+                            if (data.data.length > 0 && data.data[0].password === $scope.login.password) {
+                                $scope.isLoading = false;
+                                $localStorage.user= data.data[0];
+                                $state.go("home");
 
-                                } else {
-                                    err = "Username or password didn't match"
-                                }
+                            } else {
+                                $scope.isLoading = false;
+                                $scope.err = "Username or password is wrong";
                             }
                         }, function (err) {
+                            $scope.isLoading = false;
                             alert("An error occured on the server. Please, try again later.");
                         });
+            };
 
-            }])
+
+        })
+        .controller('RecoverCtrl', function ($scope, $http, mLab) {
+            $scope.isLoading = false;
+            $scope.recover = function () {
+                $scope.isLoading = true;
+                var query = {email: $scope.email};
+                $http.get(mLab.url + '/person?apiKey=' + mLab.apiKey + '&q=' + JSON.stringify(query))
+                        .then(function (data) {
+                            $scope.isLoading = false;
+                            if (data.data.length > 0) {
+                                $scope.err = "User does not exist";
+                            } else {
+                                $scope.err = "User does not exist";
+                            }
+                        }, function (err) {
+                             $scope.isLoading = false;
+                            alert("An error occured on the server. Please, try again later.");
+                        });
+            };
+
+
+        })
         .controller('ActivateCtrl', function ($stateParams, $http, mLab, $state) {
             try {
                 var query = {email: $stateParams.email, activationCode: $stateParams.code};

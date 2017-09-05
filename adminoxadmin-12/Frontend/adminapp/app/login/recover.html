@@ -1,0 +1,74 @@
+<!-- HOME -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="wrapper-page">
+
+                    <div class="account-pages">
+                        <div class="account-box">
+                            <div class="text-center account-logo-box">
+                                <h2 class="text-uppercase text-center">
+                                    <a href="index.html" class="text-success">
+                                        <span><img src="assets/images/bitinterest2.png" alt="" ></span>
+                                    </a>
+                                </h2>
+                                <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
+                            </div>
+                             <div id="errDiv" ng-show="err" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{err}}
+                            </div>
+                            <div class="account-content">
+                                <div class="text-center m-b-20">
+                                    <p class="text-muted m-b-0">Enter your email address and we'll send you an email with instructions to reset your password.  </p>
+                                </div>
+                                <form class="form-horizontal" ng-submit="recover()">
+
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="emailaddress">Email address</label>
+                                            <input ng-model="email" class="form-control" type="email" id="emailaddress" required="" placeholder="john@deo.com">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row text-center m-t-10">
+                                        <div class="col-12" ng-hide="isLoading">
+                                            <button class="btn btn-md btn-block btn-primary waves-effect waves-light" type="submit">Reset Password</button>
+                                        </div>
+                                        <div class="col-12" ng-show="isLoading">
+                                            <button class="btn btn-md btn-block btn-primary waves-effect waves-light" type="submit" disabled>Processing</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                                <div class="clearfix"></div>
+
+                                <div class="row m-t-40">
+                                    <div class="col-sm-12 text-center">
+                                        <p class="text-muted">Back to <a ui-sref="login" class="text-dark m-l-5"><b>Sign In</b></a></p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- end card-box-->
+                    </div>
+
+
+                </div>
+                <!-- end wrapper -->
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END HOME -->
+
+

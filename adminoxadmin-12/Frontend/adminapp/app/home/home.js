@@ -8,7 +8,7 @@
 angular.module('tempoApp.home', ['ui.router'])
         .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-                $stateProvider.state('home', {
+                $stateProvider.state('secure.home', {
                     url: '/home',
                     controller: 'HomeCtrl',
                     templateUrl: 'home/home.html'
