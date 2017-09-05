@@ -1,0 +1,169 @@
+
+
+<!-- HOME -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="wrapper-page">
+
+                    <div class="account-pages">
+
+                        <div class="account-box" >
+                            <div class="account-logo-box" ng-hide="notification">
+                                <h2 class="text-uppercase text-center">
+                                   
+                                        <span><img src="assets/images/bitinterest2.png" alt="" ></span>                                            </a>
+                                </h2>
+                                <h5 class="text-uppercase font-bold m-b-5 m-t-50">Register</h5>
+                                <p class="m-b-0">Create a secure account </p>
+                            </div>
+                            
+                            <div ng-show="notification" class="alert alert-success alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Well done!</strong> An email has been sent to your email box. Please, follow the enclosed instruction to activate your account.
+                            </div>
+                            <div id="errDiv" ng-show="err" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{err}}
+                            </div>
+                            <div class="account-content" ng-hide="notification">
+                                <form class="form-horizontal" ng-submit="register()" >
+
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="name">Full Name</label>
+                                            <input class="form-control" type="text" id="name" ng-model="person.name" required placeholder="John Doe">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="emailaddress">Email address</label>
+                                            <input class="form-control" type="email" ng-model="person.email" id="emailaddress" required placeholder="john@deo.com">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="transCode">Define Transaction Code</label>
+                                            <input  maxlength="7" minlength="4" id="transCode" class="form-control" type="text" ng-model="person.transCode"  required >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label  for="transCode1">Retype Transaction Code</label>
+                                            <input maxlength="7" minlength="4" for="transCode1" class="form-control" type="text" ng-model="transCode" required >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="password">Password</label>
+                                            <input class="form-control" ng-model="person.password" type="password" required id="password" placeholder="Enter your password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="password1">Password</label>
+                                            <input class="form-control" ng-model="password" type="password" required id="password1" placeholder="Enter your password">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="question">Security Question</label>
+                                            <input id="question" class="form-control" type="text" ng-model="person.question"  required >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="answer">Security Answer</label>
+                                            <input id="answer" class="form-control" type="text" ng-model="person.answer"  required >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+
+                                            <div class="checkbox checkbox-success">
+                                                <input id="remember" type="checkbox" checked="" required>
+                                                <label for="remember">
+                                                    I accept <a href="#myModal" target="_self" data-toggle="modal" data-target="#myModal">Terms and Conditions</a>
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- sample modal content -->
+                                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h4>Text in a modal</h4>
+                                                    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+                                                    <hr>
+                                                    <h4>Overflowing text to show scroll behavior</h4>
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
+
+                                    <div class="form-group row text-center m-t-10">
+                                        <div class="col-12" ng-hide="isLoading">
+                                            <button class="btn btn-md btn-block btn-primary waves-effect waves-light" type="submit">Sign Up Free</button>
+                                        </div>
+                                        <div class="col-12" ng-show="isLoading">
+                                            <button disabled class="btn btn-md btn-block btn-primary waves-effect waves-light" type="submit">Processing...</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+
+                                <div class="row m-t-50">
+                                    <div class="col-12 text-center">
+                                        <p class="text-muted">Already have an account?  <a ui-sref="login" class="text-dark m-l-5"><b>Sign In</b></a></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- end card-box-->
+                    </div>
+
+
+                </div>
+                <!-- end wrapper -->
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END HOME -->
+
