@@ -47,7 +47,7 @@ angular.module('tempoApp.register', ['ui.router'])
                                         alert(err.msg);
                                     });
                         } else if (!data.data[0].isActivated) {
-                            $http.put(mLab.url + '/person/'+data.data[0]._id+'?apiKey=' + mLab.apiKey, $scope.person)
+                            $http.put(mLab.url + '/person/'+data.data[0]._id.$oid+'?apiKey=' + mLab.apiKey, $scope.person)
                                     .then(function (data) {
                                         mailer.send($scope.person).then(function (res) {
                                             $scope.notification = true;
