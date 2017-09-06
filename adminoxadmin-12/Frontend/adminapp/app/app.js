@@ -29,6 +29,14 @@ angular.module('tempoApp', [
             templateUrl: 'secure.html'
         });
     }])
-        .controller('SecureCtrl', function () {
+        .controller('SecureCtrl', function ($localStorage, $state, $scope) {
             $( "body" ).removeClass( "bg-accpunt-pages" );
+            if(!$localStorage.user){
+                $state.go('login',[]);
+            }
+            
+            $scope.logout = function(){
+                $localStorage.user = null;
+                $state.go('login',[]);
+            };
         });

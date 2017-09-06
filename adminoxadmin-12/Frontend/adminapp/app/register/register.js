@@ -29,6 +29,7 @@ angular.module('tempoApp.register', ['ui.router'])
 
                     $scope.person.activationCode = uuid.v4();
                     $scope.person.isActivated = false;
+                    $scope.person.dateCreated = new Date();
                     var query = {email: $scope.person.email};
 
                     $http.get(mLab.url + '/person?apiKey=' + mLab.apiKey + '&q=' + JSON.stringify(query)).then(function (data) {

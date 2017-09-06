@@ -18,7 +18,7 @@ angular.module('tempoApp.login', ['ui.router'])
                 });
             }])
 
-        .controller('LoginCtrl', function ($scope, $http, mLab, $localStorage) {
+        .controller('LoginCtrl', function ($scope,$state, $http, mLab, $localStorage) {
             $scope.isLoading = false;
             $scope.login = {};
            
@@ -30,7 +30,7 @@ angular.module('tempoApp.login', ['ui.router'])
                             if (data.data.length > 0 && data.data[0].password === $scope.login.password) {
                                 $scope.isLoading = false;
                                 $localStorage.user= data.data[0];
-                                $state.go("home");
+                                $state.go("secure.home",[]);
 
                             } else {
                                 $scope.isLoading = false;

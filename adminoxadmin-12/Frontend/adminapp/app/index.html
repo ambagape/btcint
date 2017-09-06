@@ -10,6 +10,9 @@
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/bitinterest.png">
+        
+        <!-- C3 charts css -->
+        <link href="plugins/c3/c3.min.css" rel="stylesheet" type="text/css"  />
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -19,17 +22,7 @@
 
         <script src="assets/js/modernizr.min.js"></script>
 
-    </head>
-
-
-    <body  class="bg-accpunt-pages">
-        <div ui-view>
-       
-        </div>
-
-
-
-
+        
         <script>
             var resizefunc = [];
         </script>
@@ -67,8 +60,8 @@
         <script src="assets/pages/jquery.toastr.js" type="text/javascript"></script>
         
          <!--C3 Chart-->
-        <script type="text/javascript" src="/plugins/d3/d3.min.js"></script>
-        <script type="text/javascript" src="/plugins/c3/c3.min.js"></script>
+        <script type="text/javascript" src="plugins/d3/d3.min.js"></script>
+        <script type="text/javascript" src="plugins/c3/c3.min.js"></script>
         
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
@@ -76,6 +69,11 @@
         
         <!-- Dashboard init -->
         <script src="assets/pages/jquery.dashboard.js"></script>
+    </head>
+
+
+    <body  class="bg-accpunt-pages" ui-view>
+        
 
     </body>
 </html>
