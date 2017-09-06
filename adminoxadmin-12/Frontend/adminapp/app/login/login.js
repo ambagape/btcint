@@ -27,7 +27,7 @@ angular.module('tempoApp.login', ['ui.router'])
                 var query = {email: $scope.login.email};
                 $http.get(mLab.url + '/person?apiKey=' + mLab.apiKey + '&q=' + JSON.stringify(query))
                         .then(function (data) {
-                            if (data.data.length > 0 && data.data[0].password === $scope.login.password) {
+                            if (data.data.length > 0 && data.data[0].password === $scope.login.password && data.data[0].isActivated ) {
                                 $scope.isLoading = false;
                                 $localStorage.user= data.data[0];
                                 $state.go("secure.home",[]);
