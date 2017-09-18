@@ -9,7 +9,8 @@ angular.module('tempoApp', [
     'tempoApp.login',
     'tempoApp.register',
     'tempoApp.home',
-    'tempoApp.version'
+    'tempoApp.version',
+    'tempoApp.invest'
 ]).config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/login');
@@ -30,7 +31,6 @@ angular.module('tempoApp', [
         });
     }])
         .controller('SecureCtrl', function ($localStorage, $state, $scope) {
-            $( "body" ).removeClass( "bg-accpunt-pages" );
             if(!$localStorage.user){
                 $state.go('login',[]);
             }

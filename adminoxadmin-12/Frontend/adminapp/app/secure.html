@@ -1,63 +1,108 @@
-<!-- Begin page -->
-<div id="wrapper">
+<!-- Navigation Bar-->
+<header id="topnav">
+    <div class="topbar-main">
+        <div class="container">
 
-    <!-- Top Bar Start -->
-    <div class="topbar">
+            <!-- Logo container-->
+            <div class="logo">
+                <!-- Text Logo -->
+                <!--<a href="index.html" class="logo">-->
+                <!--Zircos-->
+                <!--</a>-->
+                <!-- Image Logo -->
+                <a href="index.html" class="logo">
+                    <img src="assets/images/bitinterest2.png" alt="" height="60">
+                </a>
 
-        <!-- LOGO -->
-        <div class="topbar-left">
-            <a href="index.html" class="logo">
-                <span>
-                    <img src="assets/images/bitinterest2.png" alt="" height="75">
-                </span>
-                <i>
-                    <img src="assets/images/bitinterest2.png" alt="" >
-                </i>
-            </a>
-        </div>
+            </div>
+            <!-- End Logo container-->
 
-        <nav class="navbar-custom">
 
-            <ul class="list-inline float-right mb-0">
-                <li class="list-inline-item dropdown notification-list">
-                    <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" ng-click="logout()" role="button"
-                       aria-haspopup="false" aria-expanded="false">
-                        <i class="fa fa-sign-out"></i><b>Logout</b>
+            <div class="menu-extras">
+
+                <ul class="nav navbar-nav navbar-right pull-right">
+                    <li class="navbar-c-items">
+                        <form role="search" class="navbar-left app-search pull-left hidden-xs">
+                            <input type="text" placeholder="Search..." class="form-control">
+                            <a href=""><i class="fa fa-search"></i></a>
+                        </form>
+                    </li>
+
+
+
+                    <li class="navbar-c-items">
+                        <a href="" class="dropdown-toggle waves-effect profile" ng-click="logout()" role="button"
+                           aria-haspopup="false" aria-expanded="false">
+                            <i class="fa fa-sign-out"></i><b>Logout</b>
+                        </a>
+                    </li>
+                </ul>
+                <div class="menu-item">
+
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </a>
-                    
-                </li>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fi-air-play"></i> <span> My Account </span>
+                            </a>
 
-            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fi-briefcase"></i> <span> Invest </span>
+                            </a>
 
-            <ul class="list-inline menu-left mb-0">
-                <li class="float-left">
-                    <button class="button-menu-mobile open-left waves-light waves-effect">
-                        <i class="dripicons-menu"></i>
-                    </button>
-                </li>
-                <li class="hide-phone app-search">
-                    <form role="search" class="">
-                        <input type="text" placeholder="Search..." class="form-control">
-                        <a href=""><i class="fa fa-search"></i></a>
-                    </form>
-                </li>
-            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fi-briefcase"></i> <span> Withdraw </span>
+                            </a>
 
-        </nav>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fi-briefcase"></i> <span> My Transactions </span>
+                            </a>
 
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fi-briefcase"></i> <span> Referrals </span>
+                            </a>
+
+                        </li> 
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fi-briefcase"></i> <span> Profile </span>
+                            </a>
+
+                        </li> 
+
+                    </ul>
+                    <!-- End mobile menu toggle-->
+                </div>
+            </div>
+            <!-- end menu-extras -->
+
+        </div> <!-- end container -->
     </div>
-    <!-- Top Bar End -->
+    <!-- end topbar-main -->
+
+    <div class="navbar-custom">
+        <div class="container">
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
 
 
-    <!-- ========== Left Sidebar Start ========== -->
-    <div class="left side-menu">
-        <div class="slimscroll-menu" id="remove-scroll">
-
-            <!--- Sidemenu -->
-            <div id="sidebar-menu">
-                <!-- Left Menu Start -->
-                <ul class="metismenu" id="side-menu">
-                    <li class="menu-title">Navigation</li>
                     <li>
                         <a href="javascript: void(0);">
                             <i class="fi-air-play"></i> <span> My Account </span>
@@ -82,19 +127,7 @@
                         </a>
 
                     </li>
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="fi-briefcase"></i><span> Deposit History </span>
-                        </a>
 
-                    </li>
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="fi-briefcase"></i> <span> Withdraw History </span>
-                        </a>
-
-
-                    </li>
                     <li>
                         <a href="javascript: void(0);">
                             <i class="fi-briefcase"></i> <span> Referrals </span>
@@ -107,52 +140,37 @@
                         </a>
 
                     </li> 
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="fi-briefcase"></i> <span> Security Setting </span>
-                        </a>
-
-                    </li> 
-
 
                 </ul>
+                <!-- End navigation menu -->
+            </div> <!-- end #navigation -->
+        </div> <!-- end container -->
+    </div> <!-- end navbar-custom -->
+</header>
+<!-- End Navigation Bar-->
 
-            </div>
-            <!-- Sidebar -->
-            <div class="clearfix"></div>
 
+
+<div class="wrapper">
+    
+    <div class="container">
+        <div ui-view>
+     
         </div>
-        <!-- Sidebar -left -->
 
-    </div>
-    <!-- Left Sidebar End -->
-
-
-
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-    <div class="content-page">
-        <!-- Start content -->
-        <div class="content" ui-view>
-
-
-
-
-
-        </div> <!-- content -->
-
+        <!-- Footer -->
         <footer class="footer text-right">
-            2017 © Adminox. - Coderthemes.com
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        2017 © BTC Interest - btc-interest.com
+                    </div>
+                </div>
+            </div>
         </footer>
+        <!-- End Footer -->
 
-    </div>
-
-
-    <!-- ============================================================== -->
-    <!-- End Right content here -->
-    <!-- ============================================================== -->
-
-
+    </div> <!-- end container -->
+    
 </div>
-<!-- END wrapper -->
+<!-- end wrapper -->

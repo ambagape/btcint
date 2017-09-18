@@ -9,72 +9,50 @@
 
     'use strict';
 
-    function initSlimscrollMenu() {
+    function initNavbar() {
 
-        $('.slimscroll-menu').slimscroll({
-            height: 'auto',
-            position: 'right',
-            size: "5px",
-            color: '#9ea5ab',
-            wheelStep: 5
+        $('.navbar-toggle').on('click', function (event) {
+            $(this).toggleClass('open');
+            $('#navigation').slideToggle(400);
         });
-    }
 
-    function initSlimscroll() {
-        $('.slimscroll').slimscroll({
-            height: 'auto',
-            position: 'right',
-            size: "5px",
-            color: '#9ea5ab'
-        });
-    }
+        $('.navigation-menu>li').slice(-2).addClass('last-elements');
 
-    function initMetisMenu() {
-        //metis menu
-        $("#side-menu").metisMenu();
-    }
-
-    function initLeftMenuCollapse() {
-        // Left menu collapse
-        $('.button-menu-mobile').on('click', function (event) {
-            event.preventDefault();
-            $("body").toggleClass("enlarged");
-        });
-    }
-
-    function initEnlarge() {
-        if ($(window).width() < 1025) {
-            $('body').addClass('enlarged');
-        } else {
-            $('body').removeClass('enlarged');
-        }
-    }
-
-    function initActiveMenu() {
-        // === following js will activate the menu in left side bar based on url ====
-        $("#sidebar-menu a").each(function () {
-            if (this.href == window.location.href) {
-                $(this).addClass("active");
-                $(this).parent().addClass("active"); // add active to li of the current link
-                $(this).parent().parent().addClass("in");
-                $(this).parent().parent().prev().addClass("active"); // add active class to an anchor
-                $(this).parent().parent().parent().addClass("active");
-                $(this).parent().parent().parent().parent().addClass("in"); // add active to li of the current link
-                $(this).parent().parent().parent().parent().parent().addClass("active");
+        $('.navigation-menu li.has-submenu a[href="#"]').on('click', function (e) {
+            if ($(window).width() < 992) {
+                e.preventDefault();
+                $(this).parent('li').toggleClass('open').find('.submenu:first').toggleClass('open');
             }
         });
     }
-
+    function initScrollbar() {
+        $('.slimscroll-noti').slimScroll({
+            height: '230px',
+            position: 'right',
+            size: "5px",
+            color: '#98a6ad',
+            wheelStep: 10
+        });
+    }
+    // === following js will activate the menu in left side bar based on url ====
+    function initMenuItem() {
+        $(".navigation-menu a").each(function () {
+            if (this.href == window.location.href) {
+                $(this).parent().addClass("active"); // add active to li of the current link
+                $(this).parent().parent().parent().addClass("active"); // add active class to an anchor
+                $(this).parent().parent().parent().parent().parent().addClass("active"); // add active class to an anchor
+            }
+        });
+    }
     function init() {
-        initSlimscrollMenu();
-        initSlimscroll();
-        initMetisMenu();
-        initLeftMenuCollapse();
-        initEnlarge();
-        initActiveMenu();
+        initNavbar();
+        initScrollbar();
+        initMenuItem();
     }
 
     init();
 
-})(jQuery)
+})(jQuery);
+
+
 

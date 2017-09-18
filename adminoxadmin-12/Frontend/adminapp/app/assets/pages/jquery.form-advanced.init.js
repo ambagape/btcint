@@ -19,6 +19,12 @@ jQuery(document).ready(function () {
 });
 
 //Bootstrap-TouchSpin
+$(".vertical-spin").TouchSpin({
+    verticalbuttons: true,
+    verticalupclass: 'mdi mdi-plus',
+    verticaldownclass: 'mdi mdi-minus'
+});
+
 $("input[name='demo1']").TouchSpin({
     min: 0,
     max: 100,
@@ -26,44 +32,28 @@ $("input[name='demo1']").TouchSpin({
     decimals: 2,
     boostat: 5,
     maxboostedstep: 10,
-    postfix: '%',
-    buttondown_class: 'btn btn-primary',
-    buttonup_class: 'btn btn-primary'
+    postfix: '%'
 });
 $("input[name='demo2']").TouchSpin({
     min: -1000000000,
     max: 1000000000,
     stepinterval: 50,
     maxboostedstep: 10000000,
-    prefix: '$',
-    buttondown_class: 'btn btn-primary',
-    buttonup_class: 'btn btn-primary'
+    prefix: '$'
 });
-$("input[name='demo3']").TouchSpin({
-    buttondown_class: 'btn btn-primary',
-    buttonup_class: 'btn btn-primary'
-});
+$("input[name='demo3']").TouchSpin();
 $("input[name='demo3_21']").TouchSpin({
-    initval: 40,
-    buttondown_class: 'btn btn-primary',
-    buttonup_class: 'btn btn-primary'
+    initval: 40
 });
 $("input[name='demo3_22']").TouchSpin({
-    initval: 40,
-    buttondown_class: 'btn btn-primary',
-    buttonup_class: 'btn btn-primary'
+    initval: 40
 });
 
 $("input[name='demo5']").TouchSpin({
     prefix: "pre",
-    postfix: "post",
-    buttondown_class: 'btn btn-primary',
-    buttonup_class: 'btn btn-primary'
+    postfix: "post"
 });
-$("input[name='demo0']").TouchSpin({
-    buttondown_class: 'btn btn-primary',
-    buttonup_class: 'btn btn-primary'
-});
+$("input[name='demo0']").TouchSpin({});
 
 
 //Bootstrap-MaxLength

@@ -63,7 +63,7 @@ p {
 .hero {
   position: relative;
   padding: 30px 0 0px 0;
-  min-height: 720px;
+  /*min-height: 720px;*/
   background: #2C3E50;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to top, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to top, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

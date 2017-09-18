@@ -1,0 +1,58 @@
+   <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <div class="btn-group pull-right">
+                        <ol class="breadcrumb hide-phone p-0 m-0">
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">Dashboard</a>
+                            </li>
+                            <li class="active">
+                                Invest
+                            </li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Invest</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title end breadcrumb -->
+
+
+       <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="card-box">
+                            <form ng-submit="invest()">
+                                <h4 class="header-title m-t-0 m-b-20">Investment Form</h4>
+
+                            <p>Select a plan</p>                           
+
+                            <select ng-model="account.plan" class="form-control select2">
+                                <option value="none">Select a plan</option>
+                                <option value="basic">120% After 1 Day - 20% profit (Range: $10.00 - $5,000.00)</option>
+                                <option value="pro">140% After 3 Day - 40% profit (Range: $50.00 - $20,000.00)</option>
+                                <option value="vip">200% After 2 Day - 200% profit (Range: $999.00 - $50,000.00)</option>
+                            </select>
+                            
+                             <div class="m-t-20">
+                                <p>Amount</p>                               
+                                <input type="number" maxlength="25" ng-model="amount" class="form-control" id="thresholdconfig" />
+                            </div>
+                            
+                            
+                            <div class="m-t-20">
+                                <button type="button" class="btn">Send</button>
+                            </div>
+                            
+                            </form>
+                            
+                            
+                        </div>
+
+                    </div>
+
+       </div>

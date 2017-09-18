@@ -7,25 +7,13 @@ jQuery(document).ready(function () {
 
     // Time Picker
     jQuery('#timepicker').timepicker({
-        defaultTIme: false,
-        icons: {
-            up: 'mdi mdi-chevron-up',
-            down: 'mdi mdi-chevron-down'
-        }
+        defaultTIme: false
     });
     jQuery('#timepicker2').timepicker({
-        showMeridian: false,
-        icons: {
-            up: 'mdi mdi-chevron-up',
-            down: 'mdi mdi-chevron-down'
-        }
+        showMeridian: false
     });
     jQuery('#timepicker3').timepicker({
-        minuteStep: 15,
-        icons: {
-            up: 'mdi mdi-chevron-up',
-            down: 'mdi mdi-chevron-down'
-        }
+        minuteStep: 15
     });
 
     //colorpicker start

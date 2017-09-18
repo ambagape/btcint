@@ -17,7 +17,6 @@ angular.module('tempoApp.login', ['ui.router'])
                     templateUrl: 'login/recover.html'
                 });
             }])
-
         .controller('LoginCtrl', function ($scope,$state, $http, mLab, $localStorage) {
             $scope.isLoading = false;
             $scope.login = {};

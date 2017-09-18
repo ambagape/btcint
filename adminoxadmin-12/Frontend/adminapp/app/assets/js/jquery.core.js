@@ -4,18 +4,19 @@
 * Module/App: Core js
 */
 
+
 //portlets
 !function($) {
     "use strict";
 
     /**
-     Portlet Widget
-     */
+    Portlet Widget
+    */
     var Portlet = function() {
         this.$body = $("body"),
-            this.$portletIdentifier = ".portlet",
-            this.$portletCloser = '.portlet a[data-toggle="remove"]',
-            this.$portletRefresher = '.portlet a[data-toggle="reload"]'
+        this.$portletIdentifier = ".portlet",
+        this.$portletCloser = '.portlet a[data-toggle="remove"]',
+        this.$portletRefresher = '.portlet a[data-toggle="reload"]'
     };
 
     //on init
@@ -25,10 +26,16 @@
         $(document).on("click",this.$portletCloser, function (ev) {
             ev.preventDefault();
             var $portlet = $(this).closest($this.$portletIdentifier);
-            var $portlet_parent = $portlet.parent();
-            $portlet.remove();
+                var $portlet_parent = $portlet.parent();
+
+
+            $portlet.slideUp("slow", function() {
+                $(this).remove();
+            });
             if ($portlet_parent.children().length == 0) {
-                $portlet_parent.remove();
+                $portlet_parent.slideUp("slow", function() {
+                   $(this).remove();
+                });
             }
         });
 
@@ -37,7 +44,7 @@
             ev.preventDefault();
             var $portlet = $(this).closest($this.$portletIdentifier);
             // This is just a simulation, nothing is going to be reloaded
-            $portlet.append('<div class="panel-disabled"><div class="sk-double-bounce"><div class="sk-child sk-double-bounce1"></div><div class="sk-child sk-double-bounce2"></div> </div> </div>');
+            $portlet.append('<div class="panel-disabled"><div class="portlet-loader"></div></div>');
             var $pd = $portlet.find('.panel-disabled');
             setTimeout(function () {
                 $pd.fadeOut('fast', function () {
@@ -46,10 +53,12 @@
             }, 500 + 300 * (Math.random() * 5));
         });
     },
-        //
-        $.Portlet = new Portlet, $.Portlet.Constructor = Portlet
+    //
+    $.Portlet = new Portlet, $.Portlet.Constructor = Portlet
 
 }(window.jQuery),
+
+
 
 /**
  * Components
@@ -82,6 +91,12 @@ function($) {
         });
     },
 
+    //initializing nicescroll
+    Components.prototype.initNiceScrollPlugin = function() {
+        //You can change the color of scroll bar here
+        $.fn.niceScroll &&  $(".nicescroll").niceScroll({ cursorcolor: '#98a6ad',cursorwidth:'6px', cursorborderradius: '5px'});
+    },
+
     //initializing Slimscroll
     Components.prototype.initSlimScrollPlugin = function() {
         //You can change the color of scroll bar here
@@ -102,10 +117,69 @@ function($) {
             new Switchery($(this)[0], $(this).data());
         });
     },
+    //multiselect
+    Components.prototype.initMultiSelect = function() {
+        if($('[data-plugin="multiselect"]').length > 0)
+            $('[data-plugin="multiselect"]').multiSelect($(this).data());
+    },
 
+     /* -------------
+     * small charts related widgets
+     */
+     //peity charts
+     Components.prototype.initPeityCharts = function() {
+        $('[data-plugin="peity-pie"]').each(function(idx, obj) {
+            var colors = $(this).attr('data-colors')?$(this).attr('data-colors').split(","):[];
+            var width = $(this).attr('data-width')?$(this).attr('data-width'):20; //default is 20
+            var height = $(this).attr('data-height')?$(this).attr('data-height'):20; //default is 20
+            $(this).peity("pie", {
+                fill: colors,
+                width: width,
+                height: height
+            });
+        });
+        //donut
+         $('[data-plugin="peity-donut"]').each(function(idx, obj) {
+            var colors = $(this).attr('data-colors')?$(this).attr('data-colors').split(","):[];
+            var width = $(this).attr('data-width')?$(this).attr('data-width'):20; //default is 20
+            var height = $(this).attr('data-height')?$(this).attr('data-height'):20; //default is 20
+            $(this).peity("donut", {
+                fill: colors,
+                width: width,
+                height: height
+            });
+        });
+
+         $('[data-plugin="peity-donut-alt"]').each(function(idx, obj) {
+            $(this).peity("donut");
+        });
+
+         // line
+         $('[data-plugin="peity-line"]').each(function(idx, obj) {
+            $(this).peity("line", $(this).data());
+         });
+
+         // bar
+         $('[data-plugin="peity-bar"]').each(function(idx, obj) {
+            var colors = $(this).attr('data-colors')?$(this).attr('data-colors').split(","):[];
+            var width = $(this).attr('data-width')?$(this).attr('data-width'):20; //default is 20
+            var height = $(this).attr('data-height')?$(this).attr('data-height'):20; //default is 20
+            $(this).peity("bar", {
+                fill: colors,
+                width: width,
+                height: height
+            });
+         });
+     },
      Components.prototype.initKnob = function() {
          $('[data-plugin="knob"]').each(function(idx, obj) {
             $(this).knob();
+         });
+     },
+
+     Components.prototype.initCircliful = function() {
+         $('[data-plugin="circliful"]').each(function(idx, obj) {
+            $(this).circliful();
          });
      },
 
@@ -126,14 +200,18 @@ function($) {
         var $this = this;
         this.initTooltipPlugin(),
         this.initPopoverPlugin(),
+        this.initNiceScrollPlugin(),
         this.initSlimScrollPlugin(),
         this.initCustomModalPlugin(),
         this.initRangeSlider(),
         this.initSwitchery(),
+        this.initMultiSelect(),
+        this.initPeityCharts(),
         this.initKnob(),
+        this.initCircliful(),
         this.initCounterUp(),
-            //creating portles
-            $.Portlet.init();
+        //creating portles
+        $.Portlet.init();
     },
 
     $.Components = new Components, $.Components.Constructor = Components

@@ -8,7 +8,7 @@ jQuery(function($) {
 
   'use strict';
 
-  var AdminoxAdmin = window.AdminoxAdmin || {};
+  var CMPLTADMIN_SETTINGS = window.CMPLTADMIN_SETTINGS || {};
 
 
 
@@ -16,7 +16,7 @@ jQuery(function($) {
   /*--------------------------------
    Window Based Layout
    --------------------------------*/
-  AdminoxAdmin.dashboardEcharts = function() {
+  CMPLTADMIN_SETTINGS.dashboardEcharts = function() {
 
 
     /*--------------- Chart 1 -------------*/
@@ -530,7 +530,7 @@ jQuery(function($) {
    initialize respective scripts
    *****************************/
   $(document).ready(function() {
-    AdminoxAdmin.dashboardEcharts();
+    CMPLTADMIN_SETTINGS.dashboardEcharts();
   });
 
   $(window).load(function() {});
