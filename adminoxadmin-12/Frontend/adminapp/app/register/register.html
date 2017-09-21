@@ -20,14 +20,14 @@
                                 <p class="m-b-0">Create a secure account </p>
                             </div>
 
-                            <div ng-show="notification" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <div ng-show="notification" class="alert alert-success alert-dismissible show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert"
                                         aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 <strong>Well done!</strong> An email has been sent to your email box. Please, follow the enclosed instruction to activate your account.
                             </div>
-                            <div id="errDiv" ng-show="err" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <div id="errDiv" ng-show="err" class="alert alert-danger alert-dismissible show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert"
                                         aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -48,6 +48,34 @@
                                         <div class="col-12">
                                             <label for="emailaddress">Email address</label>
                                             <input class="form-control" type="email" ng-model="person.email" id="emailaddress" required placeholder="john@deo.com">
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="homeaddress">Home address</label>
+                                            <input class="form-control" type="address" ng-model="person.address" id="homeaddress" required >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="province">Province</label>
+                                            <input class="form-control" type="province" ng-model="person.province" id="province" required >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="country">Country</label>
+                                            <input class="form-control" type="text" ng-model="person.country" id="country" required>
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="zip">Zip code</label>
+                                            <input class="form-control" type="text" ng-model="person.zip" id="zip" required>
                                         </div>
                                     </div>
 

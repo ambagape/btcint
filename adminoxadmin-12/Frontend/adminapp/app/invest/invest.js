@@ -15,7 +15,7 @@ angular.module('tempoApp.invest', ['ui.router'])
                 });
             }])
 
-        .controller('InvestCtrl', function ($scope, mLab) {
+        .controller('InvestCtrl', function ($scope, $localStorage, mLab) {
             $scope.investment = {};
             $scope.investment.dateCreated = new Date();
             $scope.investment.userId = $localStorage.user

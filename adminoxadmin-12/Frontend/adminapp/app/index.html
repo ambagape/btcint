@@ -23,6 +23,7 @@
         <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/angular-datatables/demo/src/archives/dist/css/angular-datatables.min.css" rel="stylesheet" />
 
         <script src="assets/js/modernizr.min.js"></script>
         <script>
@@ -53,7 +54,9 @@
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="../node_modules/angular-uuid/angular-uuid.js"></script>
         <script src="bower_components/ng-storage/ngStorage.js"></script>
-
+        <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>   
+        <script src="bower_components/angular-datatables/demo/src/archives/dist/angular-datatables.min.js"></script>
+        <script src="bower_components/angular-datatables/demo/src/archives/dist/plugins/columnfilter/angular-datatables.columnfilter.min.js"></script>
         
         <script src="app.js"></script>
         <script src="mailgun/mailgun.js"></script>
@@ -61,6 +64,9 @@
         <script src="register/register.js"></script>
         <script src="home/home.js"></script>
         <script src="invest/invest.js"></script>
+        <script src="profile/profile.js"></script>
+        <script src="transaction/transaction.js"></script>
+        <script src="affiliate/affiliate.js"></script>
         <script src="components/version/version.js"></script>
         <script src="components/version/version-directive.js"></script>
         <script src="components/version/interpolate-filter.js"></script>
@@ -82,7 +88,7 @@
     </head>
 
 
-    <body ui-view>
+    <body class="bg-accpunt-pages" ui-view>
         
 
     </body>
