@@ -12,6 +12,7 @@ angular.module('tempoApp', [
     'tempoApp.home',
     'tempoApp.version',
     'tempoApp.invest',
+    'tempoApp.withdrawal',
     'tempoApp.transaction',
     'tempoApp.affiliate',
     'tempoApp.profile'

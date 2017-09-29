@@ -1,202 +1,156 @@
 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="profile-bg-picture" style="background-image:url('assets/images/bg-profile.jpg')">
-                            <span class="picture-bg-overlay"></span><!-- overlay -->
-                        </div>
-                        <!-- meta -->
-                        <div class="profile-user-box">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="media-body">
-                                        <h4 class="m-t-5 m-b-5 ellipsis">{{person.name}}</h4>
-                                        <p class="text-muted m-b-0"><small>{{person.province}},{{person.country}}</small></p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="text-right">
-                                        <button type="button" class="btn btn-success waves-effect waves-light">
-                                            <i class="mdi mdi-account-settings-variant m-r-5"></i> Edit Profile
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/ meta -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="profile-bg-picture" style="background-image:url('assets/images/bg-profile.jpg')">
+            <span class="picture-bg-overlay"></span><!-- overlay -->
+        </div>
+        <!-- meta -->
+        <div class="profile-user-box">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="media-body">
+                        <h4 class="m-t-5 m-b-5 ellipsis">{{person.name}}</h4>
+                        <p class="text-muted m-b-0"><small>{{person.province}},{{person.country}}</small></p>
                     </div>
                 </div>
-                <!-- end row -->
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <!-- Personal-Information -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Personal Information</h3>
-                            </div>
-                            <div class="panel-body">
-                               
-                                
-                                <div class="text-left">
-                                    <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15">{{person.name}}</span></p>
-
-                                    <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">{{person.name}}</span></p>
-
-                                    <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">{{person.email}}</span></p>
-
-                                    <p class="text-muted font-13"><strong>Location :</strong> <span class="m-l-15">{{person.province}} {{person.country}}</span></p>
-
-                                   
-                                </div>
-
-                            </div>
-                        </div>
-                      
+                <div class="col-sm-6">
+                    <div class="text-right">
+                        <button type="button" class="btn btn-success waves-effect waves-light">
+                            <i class="mdi mdi-account-settings-variant m-r-5"></i> Edit Profile
+                        </button>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!--/ meta -->
+    </div>
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- Personal-Information -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Personal Information</h3>
+            </div>
+            <div class="panel-body">
 
 
-                    <div class="col-md-8">
+                <div class="text-left">
+                    <p class="text-muted font-13"><strong>Full Name :</strong> <span class="m-l-15">{{person.name}}</span></p>
 
-                        <div class="row">
+                    <p class="text-muted font-13"><strong>Mobile :</strong><span class="m-l-15">{{person.name}}</span></p>
 
-                            <div class="col-sm-4">
-                                <div class="card-box widget-box-four">
-                                    <div id="dashboard-1" class="widget-box-four-chart"></div>
-                                    <div class="wigdet-four-content pull-left">
-                                        <h4 class="m-t-0 font-16 m-b-5 text-overflow" title="Total Revenue">Total Revenue</h4>
-                                        <p class="font-secondary text-muted">Jan - Apr 2017</p>
-                                        <h3 class="m-b-0 m-t-20"><span>$</span> <span data-plugin="counterup">1,28,5960</span></h3>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div><!-- end col -->
+                    <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">{{person.email}}</span></p>
 
-                            <div class="col-sm-4">
-                                <div class="card-box widget-box-four">
-                                    <div id="dashboard-2" class="widget-box-four-chart"></div>
-                                    <div class="wigdet-four-content pull-left">
-                                        <h4 class="m-t-0 font-16 m-b-5 text-overflow" title="Total Unique Visitors">Total Unique Visitors</h4>
-                                        <p class="font-secondary text-muted">Jan - Apr 2017</p>
-                                        <h3 class="m-b-0 m-t-20"><span>$</span> <span data-plugin="counterup">1,28,5960</span></h3>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div><!-- end col -->
+                    <p class="text-muted font-13"><strong>Location :</strong> <span class="m-l-15">{{person.province}} {{person.country}}</span></p>
 
-                            <div class="col-sm-4">
-                                <div class="card-box widget-box-four">
-                                    <div id="dashboard-3" class="widget-box-four-chart"></div>
-                                    <div class="wigdet-four-content pull-left">
-                                        <h4 class="m-t-0 font-16 m-b-5 text-overflow" title="Number of Transactions">Number of Transactions</h4>
-                                        <p class="font-secondary text-muted">Jan - Apr 2017</p>
-                                        <h3 class="m-b-0 m-t-20"><span>$</span> <span data-plugin="counterup">1,28,5960</span></h3>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div><!-- end col -->
-
-                        </div>
-                        <!-- end row -->
-
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Experience</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="">
-                                    <h5 class="text-custom m-b-5">Lead designer / Developer</h5>
-                                    <p class="m-b-0">websitename.com</p>
-                                    <p><b>2010-2015</b></p>
-
-                                    <p class="text-muted font-13 m-b-0">Lorem Ipsum is simply dummy text
-                                        of the printing and typesetting industry. Lorem Ipsum has
-                                        been the industry's standard dummy text ever since the
-                                        1500s, when an unknown printer took a galley of type and
-                                        scrambled it to make a type specimen book.
-                                    </p>
-                                </div>
-
-                                <hr>
-
-                                <div class="">
-                                    <h5 class="text-custom m-b-5">Senior Graphic Designer</h5>
-                                    <p class="m-b-0">coderthemes.com</p>
-                                    <p><b>2007-2009</b></p>
-
-                                    <p class="text-muted font-13">Lorem Ipsum is simply dummy text
-                                        of the printing and typesetting industry. Lorem Ipsum has
-                                        been the industry's standard dummy text ever since the
-                                        1500s, when an unknown printer took a galley of type and
-                                        scrambled it to make a type specimen book.
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="card-box">
-                            <div class="table-responsive">
-                                <table class="table m-b-0">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Project Name</th>
-                                        <th>Start Date</th>
-                                        <th>Due Date</th>
-                                        <th>Status</th>
-                                        <th>Assign</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Adminox Admin</td>
-                                        <td>01/01/2015</td>
-                                        <td>07/05/2015</td>
-                                        <td><span class="label label-info">Work in Progress</span></td>
-                                        <td>Coderthemes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Adminox Frontend</td>
-                                        <td>01/01/2015</td>
-                                        <td>07/05/2015</td>
-                                        <td><span class="label label-success">Pending</span></td>
-                                        <td>Coderthemes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Adminox Admin</td>
-                                        <td>01/01/2015</td>
-                                        <td>07/05/2015</td>
-                                        <td><span class="label label-pink">Done</span></td>
-                                        <td>Coderthemes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Adminox Frontend</td>
-                                        <td>01/01/2015</td>
-                                        <td>07/05/2015</td>
-                                        <td><span class="label label-purple">Work in Progress</span></td>
-                                        <td>Coderthemes</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Adminox Admin</td>
-                                        <td>01/01/2015</td>
-                                        <td>07/05/2015</td>
-                                        <td><span class="label label-warning">Coming soon</span></td>
-                                        <td>Coderthemes</td>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- end col -->
 
                 </div>
-                <!-- end row -->
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-md-8">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="card-box widget-box-four">
+                    <div id="dashboard-1" class="widget-box-four-chart"></div>
+                    <div class="wigdet-four-content pull-left">
+                        <h4 class="m-t-0 font-16 m-b-5 text-overflow" title="Total Revenue">Account Balance </h4>
+                        <p class="font-secondary text-muted">Jan - {{today|date}}</p>
+                        <h3 class="m-b-0 m-t-20"><span></span> <span data-plugin="counterup">{{person.balance| currency}}</span></h3>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div><!-- end col -->
+
+            <div class="col-sm-4">
+                <div class="card-box widget-box-four">
+                    <div id="dashboard-2" class="widget-box-four-chart"></div>
+                    <div class="wigdet-four-content pull-left">
+                        <h4 class="m-t-0 font-16 m-b-5 text-overflow" title="Total Unique Visitors">Total Deposit</h4>
+                        <p class="font-secondary text-muted">Jan - {{today|date}}</p>
+                        <h3 class="m-b-0 m-t-20"><span></span> <span data-plugin="counterup">{{depoSum|currency}}</span></h3>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div><!-- end col -->
+
+            <div class="col-sm-4">
+                <div class="card-box widget-box-four">
+                    <div id="dashboard-3" class="widget-box-four-chart"></div>
+                    <div class="wigdet-four-content pull-left">
+                        <h4 class="m-t-0 font-16 m-b-5 text-overflow" title="Number of Transactions">Total Withdrawal</h4>
+                        <p class="font-secondary text-muted">Jan - {{today|date}}</p>
+                        <h3 class="m-b-0 m-t-20"><span></span> <span data-plugin="counterup">{{withSum|currency}}</span></h3>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div><!-- end col -->
+
+        </div>
+        <!-- end row -->
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Affiliate Link </h3>
+            </div>
+            <div class="panel-body">
+                <div class="">                                  
+
+                    <p class="text-muted font-13 m-b-0">http://www.btc-interest.com/?ref={{person.email}}
+                    </p>
+                </div>
+
+                <hr>
+
+
+
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">History </h3>
+            </div>
+            <div class="panel-body">
+                <div class="">                                  
+
+                    <table class="table m-b-0">
+                        <thead>
+                        <th>Earnings</th>
+                        <th>Withdrawal</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Active deposit: {{person.balance}}</td>
+                                <td>Pending withdrawal:  {{pendingWithdrawal|currency}}</td>
+                            </tr>
+                             <tr>
+                                <td>Last deposit: {{person.lastDeposit|currency}}</td>
+                                <td>Last withdrawal:  {{person.lastWithdrawal|currency}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr>
+
+
+
+            </div>
+        </div>
+
+    </div>
+    <!-- end col -->
+
+</div>
+<!-- end row -->
