@@ -26,8 +26,12 @@ angular.module('tempoApp', [
 }).constant('config', {
     domain: 'sandboxc5c1d020790b4ad4b4deefb14da0a94a.mailgun.org',
     mailServer: 'http://localhost/tempo/adminoxadmin-12/Frontend/server/mailer.php'
+}).constant('btc',{
+    url: 'localhost:3000',
+    guid:'74c37cc8-2916-4a56-87a6-c40b4804e4fb',
+    apiKey:'e025fb56-33da-4cc6-a07f-a970cabfb36c',
+    password:"t1e2m1p9o"
 }).config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-
         $stateProvider.state('secure', {
             abstract: true,
             url: '/secure',
@@ -36,13 +40,13 @@ angular.module('tempoApp', [
         });
     }])
         .controller('SecureCtrl', function ($localStorage, $state, $scope) {
-            $( "body" ).removeClass( "bg-accpunt-pages" );
-            if(!$localStorage.user){
-                $state.go('login',[]);
+            $("body").removeClass("bg-accpunt-pages");
+            if (!$localStorage.user) {
+                $state.go('login', []);
             }
-            
-            $scope.logout = function(){
+
+            $scope.logout = function () {
                 $localStorage.user = null;
-                $state.go('login',[]);
+                $state.go('login', []);
             };
         });
