@@ -19,16 +19,17 @@ angular.module('tempoApp.withdrawal', ['ui.router'])
         	$scope.isProcessing = false;
             $scope.t = {};
             $scope.bal = $localStorage.user.balance;
-            $scope.withdraw = function(){            	
+            $scope.withdraw = function(){       
+            	$scope.isProcessing = true;
             	$scope.t.email = $localStorage.user.email;
             	$scope.t.type = 'withdrawal';
             	$scope.t.dateCreated = new Date();
-                $http.post(config.playServer + 'transaction/'+$localStorage.user._id.$oid+'/'+$scope.transCode+'/'+$scope.answer,$scope.t).then(function(data){
+                $http.post(config.playServer + 'transaction/w/'+$localStorage.user._id.$oid,$scope.t).then(function(data){
 					alert("Your transaction was successful.");	
-					$scope.isProcessing = true;
+					$scope.isProcessing = false;
 				},function(err){
 					alert(err.data);
-					$scope.isProcessing = true;
+					$scope.isProcessing = false;
 				});
             }
          });
