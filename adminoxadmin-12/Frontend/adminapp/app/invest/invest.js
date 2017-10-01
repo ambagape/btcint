@@ -1,36 +1,69 @@
-
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+angular
+		.module('tempoApp.invest', [ 'ui.router','monospaced.qrcode' ])
+		.config(
+				[
+						'$stateProvider',
+						'$urlRouterProvider',
+						function($stateProvider, $urlRouterProvider,
+								$localStorage) {
+							$stateProvider.state('secure.invest', {
+								url : '/invest',
+								controller : 'InvestCtrl',
+								templateUrl : 'invest/invest.html'
+							});
+						} ])
 
-angular.module('tempoApp.invest', ['ui.router'])
-        .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider, $localStorage) {
-                $stateProvider.state('secure.invest', {
-                    url: '/invest',
-                    controller: 'InvestCtrl',
-                    templateUrl: 'invest/invest.html'
-                });
-            }])
+		.controller(
+				'InvestCtrl',
+				function($scope, $localStorage, mLab, $http, config) {
+					$scope.transaction = {address : null, amount:100,minAmount:'10',email : $localStorage.user.email,type : 'deposit',dateCreated : new Date()};
+					$scope.isProcessing = false;
+					$scope.isSent = false;
+					$scope.invest = function() {
+						if ($scope.transaction.amount < $scope.transaction.minAmount) {
+							alert('Your deposit is too small for this plan.')
+						} else {
+							$scope.isProcessing = true;
+							
+							$http
+									.get(
+											config.playServer + 'transaction/'
+													+ $scope.transaction.amount)
+									.then(
+											function(data) {
+												$scope.transaction.inBTC= data.data;
+												$http
+														.get(
+																config.playServer
+																		+ 'address')
+														.then(
+																function(data) {
+																	$scope.transaction.address = data.data.address;
+																	$scope.isProcessing = false;
+																	$scope.isSent = true;
+																});
 
-        .controller('InvestCtrl', function ($scope, $localStorage, mLab) {
-            $scope.investment = {};
-            $scope.investment.dateCreated = new Date();
-            $scope.investment.userId = $localStorage.user
-            $scope.invest = function(){
-                $http.post(mLab + '/investment?apiKey=' + mLab.apiKey,investment).then(function(data){  
-                    $http.get(mLab + '/person?apiKey=' + mLab.apiKey + '&q=' + JSON.stringify({email:$localStorage.user.email})).then(function(data){
-                        data.data[0].balance = data.data[0].balance + investment.amount;
-                        $http.put(mLab.url + '/person/' + data.data[0]._id.$oid + '?apiKey=' + mLab.apiKey, data.data[0]).then(function () {
-                                    alert("Transaction successful");
-                                }, function (e) {
-                                    throw e;
-                                });
+											},function(err){
+												console.log(err);
+											});
+						}
 
-                    });
-                    console.log(data);
-                });
-            };
-        });
+					}
+					
+					
+					$scope.apply = function(){
+						$http.post(config.playServer + 'transaction/'+$localStorage.user._id['$oid'],$scope.transaction).then(function(data){
+							alert("Payment applied successsfully");
+						},function(err){
+							alert(err.data);
+						});
+					}
+
+				
+				});

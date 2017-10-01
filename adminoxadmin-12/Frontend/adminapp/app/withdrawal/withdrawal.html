@@ -26,7 +26,7 @@
                     <div class="col-md-12">
 
                         <div class="card-box">
-                            <form ng-submit="invest()">
+                            <form ng-submit="withdraw()">
                                 <h4 class="header-title m-t-0 m-b-20">Withdrawal Form</h4>
 
                             <p>Total balance: {{investment.userId.balance}}</p>                          
@@ -35,12 +35,26 @@
                             
                              <div class="m-t-20">
                                 <p>Amount</p>                               
-                                <input type="number" maxlength="25" ng-model="amount" class="form-control" id="thresholdconfig" />
+                                <input type="number" maxlength="25" ng-model="t.amount" class="form-control" id="thresholdconfig" />
                             </div>
                             
+                            <div class="m-t-20">
+                                <p>BTC Address</p>                               
+                                <input type="number" maxlength="25" ng-model="t.address" class="form-control" id="thresholdconfig" />
+                            </div>
                             
                             <div class="m-t-20">
-                                <button type="button" class="btn">Send</button>
+                                <p>Transaction code</p>                               
+                                <input type="text" maxlength="25" ng-model="t.transCode" class="form-control" id="thresholdconfig" />
+                            </div>
+                            
+                            <div class="m-t-20">
+                                <p>Answer Your Secret Question</p>                               
+                                <input type="text" maxlength="25" ng-model="t.answer" class="form-control" id="thresholdconfig" />
+                            </div>
+                            
+                            <div class="m-t-20">
+                                <button type="button" class="btn">Send Request</button>
                             </div>
                             
                             </form>

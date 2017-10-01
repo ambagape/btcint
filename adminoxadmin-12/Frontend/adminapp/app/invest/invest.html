@@ -25,27 +25,52 @@
        <div class="row">
                     <div class="col-md-12">
 
-                        <div class="card-box">
-                            <form ng-submit="invest()">
+                        <div class="card-box" ng-hide="isSent">
+                            <form >
                                 <h4 class="header-title m-t-0 m-b-20">Deposit Form</h4>
 
                             <p>Select a plan</p>                           
 
-                            <select ng-model="account.plan" class="form-control select2">
-                                <option value="none">Select a plan</option>
-                                <option value="basic">120% After 1 Day - 20% profit (Range: $10.00 - $25,000.00)</option>
-                                <option value="pro">140% After 3 Day - 40% profit (Range: $50.00 - $50,000.00)</option>
-                                <option value="vip">200% After 2 Day - 200% profit (Range: $1,000.00 - Unlimited)</option>
+                            <select ng-model="transaction.minAmount" class="form-control select2">
+                                <option value="10">120% After 1 Day - 20% profit (Range: $10.00 - $25,000.00)</option>
+                                <option value="50">140% After 3 Day - 40% profit (Range: $50.00 - $50,000.00)</option>
+                                <option value="1000">200% After 2 Day - 200% profit (Range: $1,000.00 - Unlimited)</option>
                             </select>
                             
                              <div class="m-t-20">
                                 <p>Amount</p>                               
-                                <input type="number" maxlength="25" ng-model="amount" class="form-control" id="thresholdconfig" />
+                                <input type="number" maxlength="25" ng-model="transaction.amount" class="form-control" id="thresholdconfig" />
                             </div>
                             
                             
-                            <div class="m-t-20">
-                                <button type="button" class="btn">Send</button>
+                            <div class="m-t-20" ng-hide="isProcessing">
+                                <button ng-click="invest()" type="button" class="btn">Get Address</button>
+                            </div>
+                            <div class="m-t-20" ng-show="isProcessing">
+                                <button type="button" class="btn" disabled>Processing...</button>
+                            </div>
+                            
+                            </form>
+                            
+                            
+                        </div>
+                         <div class="card-box" ng-show="isSent">
+                            <form >
+                                <h4 class="header-title m-t-0 m-b-20">Deposit Form</h4>
+
+                            <p>Pay {{transaction.inBTC}} BTC to this address and click the button below to apply your payment</p>                           
+
+                             <div class="m-t-20">
+                                <p>Address: {{transaction.address}}</p>       
+                                <p><qrcode data="{{transaction.address}}" download></qrcode></p>                        
+                            </div>
+                            
+                            
+                            <div class="m-t-20" ng-hide="isProcessing">
+                                <button type="button" ng-click="apply()" class="btn">Apply Payment</button>
+                            </div>
+                            <div class="m-t-20" ng-show="isProcessing">
+                                <button type="button" class="btn" disabled>Processing...</button>
                             </div>
                             
                             </form>

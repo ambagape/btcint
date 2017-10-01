@@ -16,21 +16,12 @@ angular.module('tempoApp.withdrawal', ['ui.router'])
             }])
 
         .controller('WithdrawalCtrl', function ($scope, $localStorage, mLab) {
-            $scope.investment = {};
-            $scope.investment.dateCreated = new Date();
-            $scope.investment.userId = $localStorage.user;
-            $scope.invest = function(){
-                $http.post(mLab + '/investment?apiKey=' + mLab.apiKey,investment).then(function(data){  
-                    $http.get(mLab + '/person?apiKey=' + mLab.apiKey + '&q=' + JSON.stringify({email:$localStorage.user.email})).then(function(data){
-                        data.data[0].balance = data.data[0].balance + investment.amount;
-                        $http.put(mLab.url + '/person/' + data.data[0]._id.$oid + '?apiKey=' + mLab.apiKey, data.data[0]).then(function () {
-                                    alert("Transaction successful");
-                                }, function (e) {
-                                    throw e;
-                                });
-
-                    });
-                    console.log(data);
-                });
-            };
-        });
+        	$scope.isProcessing = false;
+            $scope.t = {};
+            $scope.userId = $localStorage.user;
+            $scope.withdraw = function(){            	
+                console.log(data);
+            }
+         });
+       
+    
