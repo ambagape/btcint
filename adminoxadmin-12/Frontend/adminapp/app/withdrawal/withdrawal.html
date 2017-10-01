@@ -27,34 +27,35 @@
 
                         <div class="card-box">
                             <form ng-submit="withdraw()">
+                            
                                 <h4 class="header-title m-t-0 m-b-20">Withdrawal Form</h4>
 
-                            <p>Total balance: {{investment.userId.balance}}</p>                          
+                            <p>Total balance: {{bal | currency}}</p>                          
 
                            
                             
                              <div class="m-t-20">
                                 <p>Amount</p>                               
-                                <input type="number" maxlength="25" ng-model="t.amount" class="form-control" id="thresholdconfig" />
+                                <input type="number" maxlength="25" ng-model="t.amount" class="form-control" id="thresholdconfig" required/>
                             </div>
                             
                             <div class="m-t-20">
                                 <p>BTC Address</p>                               
-                                <input type="number" maxlength="25" ng-model="t.address" class="form-control" id="thresholdconfig" />
+                                <input type="text" maxlength="25" ng-model="t.address" class="form-control" id="thresholdconfig"  required/>
                             </div>
                             
                             <div class="m-t-20">
                                 <p>Transaction code</p>                               
-                                <input type="text" maxlength="25" ng-model="t.transCode" class="form-control" id="thresholdconfig" />
+                                <input type="password" maxlength="25" ng-model="transCode" class="form-control" id="thresholdconfig" required />
                             </div>
                             
                             <div class="m-t-20">
                                 <p>Answer Your Secret Question</p>                               
-                                <input type="text" maxlength="25" ng-model="t.answer" class="form-control" id="thresholdconfig" />
+                                <input type="password" maxlength="25" ng-model="answer" class="form-control" id="thresholdconfig" required />
                             </div>
                             
                             <div class="m-t-20">
-                                <button type="button" class="btn">Send Request</button>
+                                <button type="submit" class="btn">Send Request</button>
                             </div>
                             
                             </form>
