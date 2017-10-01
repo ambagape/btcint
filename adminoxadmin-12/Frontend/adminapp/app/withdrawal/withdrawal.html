@@ -18,6 +18,7 @@
                     <h4 class="page-title">Withdraw</h4>
                 </div>
             </div>
+            
         </div>
         <!-- end page title end breadcrumb -->
 
@@ -41,21 +42,15 @@
                             
                             <div class="m-t-20">
                                 <p>BTC Address</p>                               
-                                <input type="text" maxlength="25" ng-model="t.address" class="form-control" id="thresholdconfig"  required/>
+                                <input type="text" maxlength="200" ng-model="t.address" class="form-control" id="thresholdconfig"  required/>
                             </div>
+                           
                             
                             <div class="m-t-20">
-                                <p>Transaction code</p>                               
-                                <input type="password" maxlength="25" ng-model="transCode" class="form-control" id="thresholdconfig" required />
+                                <button type="submit" class="btn" ng-hide="isProcessing">Send Request</button>
                             </div>
-                            
                             <div class="m-t-20">
-                                <p>Answer Your Secret Question</p>                               
-                                <input type="password" maxlength="25" ng-model="answer" class="form-control" id="thresholdconfig" required />
-                            </div>
-                            
-                            <div class="m-t-20">
-                                <button type="submit" class="btn">Send Request</button>
+                                <button type="submit" class="btn" disabled ng-show="isProcessing">Processing...</button>
                             </div>
                             
                             </form>
