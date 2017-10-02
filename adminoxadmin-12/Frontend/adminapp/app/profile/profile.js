@@ -15,7 +15,7 @@ angular.module('tempoApp.profile', ['ui.router'])
                 });
             }])
 
-        .controller('ProfileCtrl', function ($scope,$localStorage, mLab, $q, $state, $filter, $http, config, DTOptionsBuilder, DTColumnBuilder) {
+        .controller('ProfileCtrl', function ($state, $scope,$localStorage, mLab, $q, $state, $filter, $http, config, DTOptionsBuilder, DTColumnBuilder) {
             $scope.isLoading = true;
             $scope.person = $localStorage.user;
             $scope.today = new Date().getTime();
@@ -42,9 +42,13 @@ angular.module('tempoApp.profile', ['ui.router'])
             
             $scope.update = function(){
             	$scope.isLoading = true;
+            	$scope.person.isActivated = true;
             	$http.put(config.playServer + 'person/'+$localStorage.user._id.$oid,$scope.person).then(function(data){
             		alert("Updated successfully");
+            		$state.reload();
             		$scope.isLoading = false;
+            	},function(err){
+            		alert(err.data);
             	});
             }
         });
