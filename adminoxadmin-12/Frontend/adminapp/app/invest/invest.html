@@ -15,7 +15,7 @@
                             </li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Invest</h4>
+                    <h4 class="page-title">Deposit</h4>
                 </div>
             </div>
         </div>
@@ -33,8 +33,8 @@
 
                             <select ng-model="transaction.minAmount" class="form-control select2">
                                 <option value="10">120% After 1 Day - 20% profit (Range: $10.00 - $25,000.00)</option>
-                                <option value="50">140% After 3 Day - 40% profit (Range: $50.00 - $50,000.00)</option>
-                                <option value="1000">200% After 2 Day - 200% profit (Range: $1,000.00 - Unlimited)</option>
+                                <option value="50">140% After 3 Days - 40% profit (Range: $50.00 - $50,000.00)</option>
+                                <option value="1000">200% After 2 Days - 200% profit (Range: $1,000.00 - Unlimited)</option>
                             </select>
                             
                              <div class="m-t-20">
@@ -56,22 +56,18 @@
                         </div>
                          <div class="card-box" ng-show="isSent">
                             <form >
-                                <h4 class="header-title m-t-0 m-b-20">Deposit Form</h4>
+                                <h4 class="header-title m-t-0 m-b-20">Deposit Slip</h4>
+							<p>Plan: {{plans[transaction.minAmount]}} </p>
+							<p>Credit amount: {{transaction.amount | currency}}</p>
+							<p>Debit amount: {{transaction.amount  | currency}}</p>
+							<p>BTC debit amount: {{transaction.inBTC}}  BTC </p>
+                            <p>Pay exactly {{transaction.inBTC}} BTC to <a href="bitcoin:{{transaction.address}}?amount={{transaction.amount}}">{{transaction.address}}</a> </p>                           
 
-                            <p>Pay {{transaction.inBTC}} BTC to this address and click the button below to apply your payment</p>                           
-
-                             <div class="m-t-20">
-                                <p>Address: {{transaction.address}}</p>       
-                                <p><qrcode data="{{transaction.address}}" download></qrcode></p>                        
-                            </div>
+                            <div class="m-t-20">
+                                <p><qrcode data="bitcoin:{{transaction.address}}?amount={{transaction.amount}}" download></qrcode></p>                        
+                            </div>                            
                             
-                            
-                            <div class="m-t-20" ng-hide="isProcessing">
-                                <button type="button" ng-click="apply()" class="btn">Apply Payment</button>
-                            </div>
-                            <div class="m-t-20" ng-show="isProcessing">
-                                <button type="button" class="btn" disabled>Processing...</button>
-                            </div>
+                          
                             
                             </form>
                             

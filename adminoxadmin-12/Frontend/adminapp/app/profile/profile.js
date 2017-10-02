@@ -39,4 +39,12 @@ angular.module('tempoApp.profile', ['ui.router'])
                 
                 $scope.isLoading = false;
             });
+            
+            $scope.update = function(){
+            	$scope.isLoading = true;
+            	$http.put(config.playServer + 'person/'+$localStorage.user._id.$oid,$scope.person).then(function(data){
+            		alert("Updated successfully");
+            		$scope.isLoading = false;
+            	});
+            }
         });

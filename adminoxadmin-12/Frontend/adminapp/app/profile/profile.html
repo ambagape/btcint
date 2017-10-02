@@ -15,9 +15,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="text-right">
-                        <button type="button" class="btn btn-success waves-effect waves-light">
+                        <a href="#myModal" target="_self" data-toggle="modal" data-target="#myModal"><button type="button" class="btn btn-success waves-effect waves-light">
                             <i class="mdi mdi-account-settings-variant m-r-5"></i> Edit Profile
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </div>
@@ -52,8 +52,75 @@
         </div>
 
     </div>
+	
+	 <!-- sample modal content -->
+      <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  </div>
+                  <div class="modal-body">
+                      <h4>Update Profile</h4>
+                      <hr>
+                      <form ng-submit="update()">
+                       <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="name">Full Name</label>
+                                            <input class="form-control" type="text" id="name" ng-model="person.name" required placeholder="John Doe">
+                                        </div>
+                                    </div>
 
-
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="emailaddress">Email address</label>
+                                            <input class="form-control" type="email" ng-model="person.email" id="emailaddress" required placeholder="john@deo.com">
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="homeaddress">Home address</label>
+                                            <input class="form-control" type="address" ng-model="person.address" id="homeaddress" required >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="province">Province</label>
+                                            <input class="form-control" type="province" ng-model="person.province" id="province" required >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="country">Country</label>
+                                            <input class="form-control" type="text" ng-model="person.country" id="country" required>
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group row m-b-20">
+                                        <div class="col-12">
+                                            <label for="zip">Zip code</label>
+                                            <input class="form-control" type="text" ng-model="person.zip" id="zip" required>
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group row text-center m-t-10">
+                                        <div class="col-12" ng-hide="isLoading">
+                                            <button class="btn btn-md btn-block btn-primary waves-effect waves-light" type="submit">Update</button>
+                                        </div>
+                                        <div class="col-12" ng-show="isLoading">
+                                            <button disabled class="btn btn-md btn-block btn-primary waves-effect waves-light" type="submit">Processing...</button>
+                                        </div>
+                                    </div>
+                                   
+                    
+                  </div>
+</form>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
     <div class="col-md-8">
 
         <div class="row">

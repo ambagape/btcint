@@ -25,6 +25,11 @@ angular
 					$scope.transaction = {address : null, amount:100,minAmount:'10',email : $localStorage.user.email,type : 'deposit',dateCreated : new Date()};
 					$scope.isProcessing = false;
 					$scope.isSent = false;
+					$scope.plans= {
+							'10':'120% After 1 Day - 20% profit',
+							'50':'140% After 3 Days - 40% profit',
+							'1000':'200% After 2 Day - 200% profit'
+							}
 					$scope.invest = function() {
 						if ($scope.transaction.amount < $scope.transaction.minAmount) {
 							alert('Your deposit is too small for this plan.')
