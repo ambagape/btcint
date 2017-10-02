@@ -35,7 +35,7 @@ function sendMailgun($data) {
   $domain = 'hosatek.com';
   $activationUrl = "http://localhost/tempo/adminoxadmin-12/frontend/adminapp/app/";
   $messageBody = "<html><p>Hello " . $data['name'] . ",</p>" .
-                                    "<p>Welcome to BTC Interest. <a href=\"".$activationUrl."#!/activate/".$data['email']."/".$data['activationCode']."\">Click this link to activate your new account</a>.</p>
+                                    "<p>Welcome to BTC Interest.</p>
 									<p>Thanks.</p>
 									 <p>  Zack Bryan<br/> CEO, BTC Interest </p>
 									</html>";
@@ -45,7 +45,7 @@ function sendMailgun($data) {
 	$result = $mgClient->sendMessage($domain, array(
 		'from'    => 'Btc Interest <admin@hosatek.com>',
 		'to'      =>  $data['email'],
-		'subject' => "Please, Activate Your BtcInterest Account",
+		'subject' => "Hello, Thanks For Joining BtcInterest Account",
 		'html'    => $messageBody
 	));
   

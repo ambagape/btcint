@@ -28,7 +28,7 @@ angular.module('tempoApp.register', ['ui.router'])
                     }
 
                     $scope.person.activationCode = uuid.v4();
-                    $scope.person.isActivated = false;
+                    $scope.person.isActivated = true;
                     $scope.person.dateCreated = new Date();
                     $scope.person.balance = 0;
                     var query = {email: $scope.person.email};
