@@ -6,6 +6,13 @@
 
 angular
 		.module('tempoApp.invest', [ 'ui.router','monospaced.qrcode' ])
+		.config( [
+			    '$compileProvider',
+			    function( $compileProvider )
+			    {   
+			        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|bitcoin):/);
+			    }
+			])
 		.config(
 				[
 						'$stateProvider',
@@ -50,6 +57,7 @@ angular
 														.then(
 																function(data) {
 																	$scope.transaction.address = data.data.address;
+																	$scope.link = 'bitcoin:'+data.data.address+'?amount='+$scope.transaction.inBTC;
 																	$scope.isProcessing = false;
 																	$scope.isSent = true;
 																});
@@ -68,7 +76,19 @@ angular
 						},function(err){
 							alert(err.data);
 						});
-					}
+					};
+					
+					$scope.encode = function(address, options) {
+						  options = options || {};
+						  var query = JSON.stringify(options);
+
+						  if (options.amount) {
+						    if (!isFinite(options.amount)) throw new TypeError('Invalid amount')
+						    if (options.amount < 0) throw new TypeError('Invalid amount')
+						  }
+
+						  return 'bitcoin:' + address + (query ? '?' : '') + query
+						};
 
 				
 				});

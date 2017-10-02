@@ -15,7 +15,7 @@
                             </li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Deposit</h4>
+                    <h4 class="page-title">Deposit </h4>
                 </div>
             </div>
         </div>
@@ -61,10 +61,10 @@
 							<p>Credit amount: {{transaction.amount | currency}}</p>
 							<p>Debit amount: {{transaction.amount  | currency}}</p>
 							<p>BTC debit amount: {{transaction.inBTC}}  BTC </p>
-                            <p>Pay exactly {{transaction.inBTC}} BTC to <a href="bitcoin:{{transaction.address}}?amount={{transaction.inBTC}}">{{transaction.address}}</a> </p>                           
+                            <p>Pay exactly {{transaction.inBTC}} BTC to <a href="{{link}}">{{transaction.address}}</a> </p>                           
 
                             <div class="m-t-20">
-                                <p><qrcode data="bitcoin:{{transaction.address}}?amount={{transaction.inBTC}}" download></qrcode></p>                        
+                                <p><qrcode data="{{link}}" download></qrcode></p>                        
                             </div>                            
                             
                           
