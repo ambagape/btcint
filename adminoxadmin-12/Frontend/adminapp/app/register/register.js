@@ -28,7 +28,6 @@ angular.module('tempoApp.register', ['ui.router'])
                     }
 
                     $scope.person.activationCode = uuid.v4();
-                    $scope.person.isActivated = true;
                     $scope.person.dateCreated = new Date();
                     $scope.person.balance = 0;
                     var query = {email: $scope.person.email};
@@ -36,19 +35,6 @@ angular.module('tempoApp.register', ['ui.router'])
                     $http.get(mLab.url + '/person?apiKey=' + mLab.apiKey + '&q=' + JSON.stringify(query)).then(function (data) {
                         if (data.data.length < 1) {
                             $http.post(mLab.url + '/person?apiKey=' + mLab.apiKey, $scope.person)
-                                    .then(function (data) {
-                                        mailer.send($scope.person).then(function (res) {
-                                            $scope.notification = true;
-                                        }, function (err) {
-                                            alert(err.msg);
-                                        });
-
-                                    }, function (err) {
-                                        console.log(err);
-                                        alert(err.msg);
-                                    });
-                        } else if (!data.data[0].isActivated) {
-                            $http.put(mLab.url + '/person/'+data.data[0]._id.$oid+'?apiKey=' + mLab.apiKey, $scope.person)
                                     .then(function (data) {
                                         mailer.send($scope.person).then(function (res) {
                                             $scope.notification = true;

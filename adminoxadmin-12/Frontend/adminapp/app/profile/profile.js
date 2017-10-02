@@ -42,7 +42,6 @@ angular.module('tempoApp.profile', ['ui.router'])
             
             $scope.update = function(){
             	$scope.isLoading = true;
-            	$scope.person.isActivated = true;
             	$http.put(config.playServer + 'person/'+$localStorage.user._id.$oid,$scope.person).then(function(data){
             		alert("Updated successfully");
             		$state.reload();
