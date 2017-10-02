@@ -61,7 +61,7 @@
 							<p>Credit amount: {{transaction.amount | currency}}</p>
 							<p>Debit amount: {{transaction.amount  | currency}}</p>
 							<p>BTC debit amount: {{transaction.inBTC}}  BTC </p>
-                            <p>Pay exactly {{transaction.inBTC}} BTC to <a href="bitcoin:{{transaction.address}}?amount={{transaction.amount}}">{{transaction.address}}</a> </p>                           
+                            <p>Pay exactly {{transaction.inBTC}} BTC to <a href="https://blockchain.info/payment_request?address={{transaction.address}}&amount={{transaction.amount}}">{{transaction.address}}</a> </p>                           
 
                             <div class="m-t-20">
                                 <p><qrcode data="bitcoin:{{transaction.address}}?amount={{transaction.amount}}" download></qrcode></p>                        
