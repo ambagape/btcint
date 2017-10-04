@@ -49,6 +49,7 @@ angular
 													+ $scope.transaction.amount)
 									.then(
 											function(data) {
+												$scope.transaction.email = $localStorage.user.email;
 												$scope.transaction.inBTC= data.data;
 												$http
 														.get(
@@ -56,10 +57,20 @@ angular
 																		+ 'address')
 														.then(
 																function(data) {
-																	$scope.transaction.address = data.data.address;
-																	$scope.link = 'bitcoin:'+data.data.address+'?amount='+$scope.transaction.inBTC;
-																	$scope.isProcessing = false;
-																	$scope.isSent = true;
+																	$http.post(config.playServer + 'transaction',{
+																		email:$localStorage.user.email,
+																		amount:$scope.transaction.amount,
+																		minAmount:$scope.transaction.minAmount,																		
+																		dateCreated : new Date().getTime(),
+																		address: data.data.address,
+																		inBTC: $scope.transaction.inBTC
+																	}).then(function(res){
+																		$scope.transaction.address = data.data.address;
+																		$scope.link = 'bitcoin:'+data.data.address+'?amount='+$scope.transaction.inBTC;
+																		$scope.isProcessing = false;
+																		$scope.isSent = true;
+																	});
+																	
 																});
 
 											},function(err){

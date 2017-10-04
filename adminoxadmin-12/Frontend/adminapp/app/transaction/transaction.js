@@ -30,9 +30,24 @@ angular.module('tempoApp.transaction', ['ui.router'])
             }).withPaginationType('full_numbers')
                     .withDOM('pitrfl');
              $scope.dtColumns = [
-                DTColumnBuilder.newColumn('type').withTitle('Type'),
-                DTColumnBuilder.newColumn('amount').withTitle('Amount'),
-                DTColumnBuilder.newColumn('dateCreated').withTitle('Date')
+                
+                DTColumnBuilder.newColumn('minAmount').withTitle('Plan') .renderWith(function (data, type, full) {
+                    if(data==10){
+                    	return 'Basic';
+                    }else if(data==50){
+                    	return 'Pro';
+                    }else{
+                    	return 'VIP';
+                    }
+                }),
+                DTColumnBuilder.newColumn('amount').withTitle('Capital'),
+                DTColumnBuilder.newColumn('interest').withTitle('Interest'),
+                DTColumnBuilder.newColumn('withdrawalStatus').withTitle('Withdrawal Status'),
+                DTColumnBuilder.newColumn('withdrawalDate').withTitle('Withdrawal Date').renderWith(function (data, type, full) {
+                    return $filter('date')(data);
+                }),
+               
+                DTColumnBuilder.newColumn('depositDate').withTitle('Deposit Date')
                         .renderWith(function (data, type, full) {
                             return $filter('date')(data);
                         })

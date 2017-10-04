@@ -25,16 +25,16 @@ angular.module('tempoApp.profile', ['ui.router'])
                 $scope.withSum = 0;
                 $scope.pendingWithdrawal = 0;
                 for(var i=0; i<data.data.length; i++){
-                    if(data.data[i].type==='deposit'){
+                    if(data.data[i].status==='done'){
                          $scope.depoSum = $scope.depoSum + data.data[i].amount;
-                    }else{
-                        if(data.data[i].status==='done'){
-                            $scope.withSum = $scope.withSum + data.data[i].amount;
-                        }else{
-                            $scope.pendingWithdrawal = $scope.pendingWithdrawal + data.data[i].amount;
-                        }
+                    }
+
+                    if(data.data[i].withdrawalStatus==='done'){
+                        $scope.withSum = $scope.withSum + data.data[i].amount+data.data[i].interest;
+                    }else if(data.data[i].withdrawalStatus==='pending'){
+                        $scope.pendingWithdrawal = $scope.pendingWithdrawal + data.data[i].amount+data.data[i].interest;
+                    }
                         
-                    }                   
                 }
                 
                 $scope.isLoading = false;

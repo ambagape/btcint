@@ -37,12 +37,14 @@
                             
                              <div class="m-t-20">
                                 <p>Amount</p>                               
-                                <input type="number" maxlength="25" ng-model="t.amount" class="form-control" id="thresholdconfig" required/>
+                            	<select ng-model="tuid" class="form-control select2" required>
+                            		<option ng-repeat="t in monies" value="{{t._id.$oid}}">{{t.amount+t.interest|currency}}</option>
+                            	</select>
                             </div>
                             
                             <div class="m-t-20">
                                 <p>BTC Address</p>                               
-                                <input type="text" maxlength="200" ng-model="t.address" class="form-control" id="thresholdconfig"  required/>
+                                <input type="text" maxlength="200" ng-model="address" class="form-control" id="thresholdconfig"  required/>
                             </div>
                            
                             
