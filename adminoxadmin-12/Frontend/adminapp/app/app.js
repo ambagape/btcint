@@ -20,12 +20,9 @@ angular.module('tempoApp', [
 
         $urlRouterProvider.otherwise('/login');
 
-    }]).constant('mLab', {
-    url: 'https://api.mlab.com/api/1/databases/tempodb/collections',
-    apiKey: 'aSzyIlQ79CwxPa2UuQbEF4e-Q16AKtO8'
-}).constant('config', {
+    }]).constant('config', {
     domain: 'sandboxc5c1d020790b4ad4b4deefb14da0a94a.mailgun.org',
-    mailServer: 'http://localhost/tempo/adminoxadmin-12/Frontend/server/mailer.php',
+    mailServer: 'http://tempo.dev/adminoxadmin-12/Frontend/server/mailer.php',
     playServer: 'http://tempo.dev/api/'
 }).config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $stateProvider.state('secure', {

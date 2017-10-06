@@ -15,7 +15,7 @@ angular.module('tempoApp.affiliate', ['ui.router'])
                 });
             }])
 
-        .controller('AffiliateCtrl', function ($scope,$localStorage, mLab, $q, $state, $filter, $http, config, DTOptionsBuilder, DTColumnBuilder) {
+        .controller('AffiliateCtrl', function ($scope,$localStorage, $q, $state, $filter, $http, config, DTOptionsBuilder, DTColumnBuilder) {
             $scope.person = $localStorage.user;
             
         });

@@ -15,12 +15,13 @@ angular.module('tempoApp.withdrawal', ['ui.router'])
                 });
             }])
 
-        .controller('WithdrawalCtrl', function ($scope, $localStorage, mLab, config, $http) {
+        .controller('WithdrawalCtrl', function ($scope, $localStorage, config, $http) {
         	$scope.isProcessing = false;
+        	$scope.isLoading = true;
             $scope.bal = $localStorage.user.balance;
             $http.get(config.playServer+'transaction/w/'+$localStorage.user.email).then(function(data){
             	$scope.monies = data.data;
-            	
+            	$scope.isLoading = false;
             });
             $scope.withdraw = function(){       
             	$scope.isProcessing = true;

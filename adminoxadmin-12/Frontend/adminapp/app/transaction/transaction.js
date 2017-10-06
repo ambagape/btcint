@@ -15,13 +15,18 @@ angular.module('tempoApp.transaction', ['ui.router'])
                 });
             }])
 
-        .controller('TransactionCtrl', function ($scope,$localStorage, mLab, $q, $state, $filter, $http, config, DTOptionsBuilder, DTColumnBuilder) {
+        .controller('TransactionCtrl', function ($scope,$localStorage, config, $q, $state, $filter, $http, DTOptionsBuilder, DTColumnBuilder) {
             
             $scope.dtOptions = DTOptionsBuilder.fromFnPromise(function () {
                 var defer = $q.defer();
-                var query = {email: $localStorage.user.email};
-                $http.get(mLab.url + '/transactions?apiKey=' + mLab.apiKey+ '&q=' + JSON.stringify(query)).then(function (result) {
-                    defer.resolve(result.data);
+                $http.get(config.playServer + 'transaction/all/'+$localStorage.user.email).then(function (result) {
+                    for(var i=0; i<result.data.length;i++){
+                    	if(result.data[i].status==='pending'){
+                    		result.data.splice(i,1);
+                    		i = i-1;
+                    	}
+                    }
+                	defer.resolve(result.data);
                     
                 },function(data){
                     console.log(data);
@@ -40,16 +45,13 @@ angular.module('tempoApp.transaction', ['ui.router'])
                     	return 'VIP';
                     }
                 }),
-                DTColumnBuilder.newColumn('amount').withTitle('Capital'),
-                DTColumnBuilder.newColumn('interest').withTitle('Interest'),
-                DTColumnBuilder.newColumn('withdrawalStatus').withTitle('Withdrawal Status'),
-                DTColumnBuilder.newColumn('withdrawalDate').withTitle('Withdrawal Date').renderWith(function (data, type, full) {
-                    return $filter('date')(data);
+                DTColumnBuilder.newColumn('amount').withTitle('Capital').renderWith(function (data, type, full) {
+                    return $filter('currency')(data);
                 }),
-               
-                DTColumnBuilder.newColumn('depositDate').withTitle('Deposit Date')
-                        .renderWith(function (data, type, full) {
-                            return $filter('date')(data);
-                        })
+                DTColumnBuilder.newColumn('interest').withTitle('Interest').renderWith(function (data, type, full) {
+                    return $filter('currency')(data);
+                }),
+                DTColumnBuilder.newColumn('withdrawalStatus').withTitle('Withdrawal Status')
+                
             ];
         });

@@ -197,12 +197,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Active deposit: {{person.balance}}</td>
+                                <td>Active deposit: {{depoSum | currency}}</td>
                                 <td>Pending withdrawal:  {{pendingWithdrawal|currency}}</td>
                             </tr>
                              <tr>
-                                <td>Last deposit: {{person.lastDeposit|currency}}</td>
-                                <td>Last withdrawal:  {{person.lastWithdrawal|currency}}</td>
+                                <td>Last deposit: {{lastDeposit|currency}}</td>
+                                <td>Last withdrawal:  {{lastWithdrawal|currency}}</td>
                             </tr>
                         </tbody>
                     </table>

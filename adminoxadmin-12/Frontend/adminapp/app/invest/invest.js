@@ -28,7 +28,7 @@ angular
 
 		.controller(
 				'InvestCtrl',
-				function($scope, $localStorage, mLab, $http, config) {
+				function($scope, $localStorage, $http, config) {
 					$scope.transaction = {address : null, amount:100,minAmount:'10',email : $localStorage.user.email,type : 'deposit',dateCreated : new Date()};
 					$scope.isProcessing = false;
 					$scope.isSent = false;
