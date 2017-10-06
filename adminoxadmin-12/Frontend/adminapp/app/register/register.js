@@ -13,7 +13,7 @@ angular.module('tempoApp.register', [ 'ui.router' ]).config(
 
 .controller(
 		'RegisterCtrl',
-		function($scope, $http, mLab, uuid, mailer, $location, config, $anchorScroll, $localStorage ) {
+		function($scope, $http, uuid, mailer, $location, config, $anchorScroll, $localStorage ) {
 			console.log('In the login cOntroller');
 			$scope.isLoading = false;
 			$scope.notification = false;
