@@ -35,20 +35,24 @@
 
                            
                             
-                             <div class="m-t-20">
+                             <div class="m-t-20" ng-show="monies.length>0">
                                 <p>Amount</p>                               
                             	<select ng-model="tuid" class="form-control select2" required>
                             		<option ng-repeat="t in monies" value="{{t._id.$oid}}">{{t.amount+t.interest|currency}}</option>
                             	</select>
                             </div>
+                             <div class="m-t-20" ng-hide="monies.length>0">
+                                <p>You have no funds to withdraw.</p>                               
+                            	
+                            </div>
                             
-                            <div class="m-t-20">
+                            <div class="m-t-20" ng-show="monies.length>0">
                                 <p>BTC Address</p>                               
                                 <input type="text" maxlength="200" ng-model="address" class="form-control" id="thresholdconfig"  required/>
                             </div>
                            
                             
-                            <div class="m-t-20">
+                            <div class="m-t-20" ng-show="monies.length>0">
                                 <button type="submit" class="btn" ng-hide="isProcessing">Send Request</button>
                             </div>
                             <div class="m-t-20">
