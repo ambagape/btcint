@@ -18,9 +18,12 @@ angular.module('tempoApp.withdrawal', ['ui.router'])
         .controller('WithdrawalCtrl', function ($scope, $localStorage, config, $http) {
         	$scope.isProcessing = false;
         	$scope.isLoading = true;
-            $scope.bal = $localStorage.user.balance;
             $http.get(config.playServer+'transaction/w/'+$localStorage.user.email).then(function(data){
             	$scope.monies = data.data;
+            	$scope.bal = 0;
+            	for(var i=0;i<$scope.monies.length;i++){
+            		$scope.bal =$scope.bal+ $scope.monies[i].interest + $scope.monies[i].amount;
+            	}
             	$scope.isLoading = false;
             });
             $scope.withdraw = function(){       
@@ -28,6 +31,7 @@ angular.module('tempoApp.withdrawal', ['ui.router'])
                 $http.get(config.playServer + 'transaction/w/'+$scope.tuid+'/'+$scope.address).then(function(data){
 					alert("Your transaction was successful.");	
 					$scope.isProcessing = false;
+					$scope.go("secure.invest");
 				},function(err){
 					alert(err.data);
 					$scope.isProcessing = false;
